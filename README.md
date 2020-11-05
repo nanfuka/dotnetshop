@@ -9,8 +9,9 @@ A user of this application can Create, Read  Edit and Delete any product they ha
 - install sql server on your machine
 - Install Visual Studio code if using linux  and Visual Studio for windows
 - Install git on your machine if not you will have to download instead of cloning in the next step
-- git clone https://github.com/nanfuka/dotnetshop.git.
-- Open the project using visual studio 
+- git clone ```https://github.com/nanfuka/dotnetshop.git```.
+- Open the project using visual studio
+- cd into the Boutiq-api folder 
 - Install all the libraries using dotnet restore
 - Modify the appsettings.json file by editing the connection string.
 - Run the application using ```dotnet run```
