@@ -1,0 +1,159 @@
+@model Boutiq_api.Models.Boutiq
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+img{
+    max-width: 80%;
+}
+</style>
+
+
+
+<h1>Edit the Boutiq Item</h1>
+
+<div>
+    <a asp-action="GetCurrentStalk">Back to List</a>
+</div>
+<hr />
+<div class="row">
+    @* <div class="col-md-4"> *@
+        <form  enctype="multipart/form-data" method="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="Id" />
+
+            <div class = "row">
+                <div class = "col-md-6">
+            <img src="~/images/@Html.DisplayFor(model => model.itemImage)"/>
+
+                </div>
+                <div class = "col-md-6">
+                    <div class = "row">
+                        <div class = "col-md-6">
+                                                        <div class="form-group">
+                            <label asp-for="Type" class="control-label"></label>
+                            <select asp-for="Type" class="form-control">
+                                
+                                <option value="Legging">Legging</option>
+                                <option value="Jean">Jean</option>
+                                <option value="pants">pants</option>
+                                <option value="top">top</option>
+                                <option value="tshirt">tshirt</option>
+                                <option value="twopiece">two piece</option>
+                                <option value="dress">dress</option>
+                                <option value="Jumpsuit">Jumpsuit</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                        </div>
+                         <div class = "col-md-6">
+                                      <div class="form-group">
+                <label asp-for="DateOfEntry" class="control-label"></label>
+                <input asp-for="DateOfEntry" class="form-control" />
+                <span asp-validation-for="DateOfEntry" class="text-danger"></span>
+            </div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row">
+                        <div class = "col-md-6">
+                              <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+                        </div>
+                         <div class = "col-md-6">
+                                 <div class="form-group">
+                <label asp-for="DateOfSale" class="control-label"></label>
+                <input asp-for="DateOfSale" class="form-control" />
+                <span asp-validation-for="DateOfSale" class="text-danger"></span>
+            </div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row">
+                        <div class = "col-md-6">
+                       
+                                    <div class="form-group">
+                <label asp-for="SalePrice" class="control-label"></label>
+                <input asp-for="SalePrice" class="form-control" />
+                <span asp-validation-for="SalePrice" class="text-danger"></span>
+            </div>
+                        </div>
+                         <div class = "col-md-6">
+                        
+                        <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+                        </div>
+                    </div>
+
+                                        <div class = "row">
+                        <div class = "col-md-6">
+                      <div class="form-group">
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+                        </div>
+                         <div class = "col-md-6">
+                                                       <div class="form-group">
+                            <label asp-for="status" class="control-label"></label>
+                            <select asp-for="status" class="form-control">
+                                
+                                <option value="inShop">in Shop</option>
+                                <option value="sold">Sold</option>
+                                
+                            </select>
+                            <span asp-validation-for="status" class="text-danger"></span>
+                        </div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row">
+                        <div class = "col-md-6">
+                         <div class="form-group">
+                <label asp-for="itemImage" class="control-label"></label>
+                <input asp-for="itemImage" class="form-control" />
+                <span asp-validation-for="itemImage" class="text-danger"></span>
+            </div> 
+                        </div>
+                         <div class = "col-md-6">
+                      <div class="form-group">
+                <input type="submit" value="Save"  class="btn btn-primary form-control" />
+            </div>
+                        </div>
+                    </div>
+
+                </div>
+            
+            </div>
+
+
+
+
+      
+
+           
+
+            
+
+        
+       
+        </form>
+    @* </div> *@
+</div>
+
+
+
+
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

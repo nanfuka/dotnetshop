@@ -1,0 +1,153 @@
+﻿@model Boutiq_api.ViewModels.BoutiqViewModel
+
+@{
+    ViewData["Title"] = "New";
+}
+<style>
+.btn{
+    min-width: 100%;
+  display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    font-size: 1.5rem;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>
+
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white">
+            <h4>Add New </h4>
+        </div>
+        <div class="card-body">
+            <form enctype="multipart/form-data" asp-action="New">
+                <div class="row">
+                    <div class="col-md-4">                    
+                            <div class="form-group">
+                            <label asp-for="Type" class="control-label"></label>
+                            <select asp-for="Type" class="form-control">
+                                  <option>select type</option>
+                              
+                                <option value="Legging">Legging</option>
+                                <option value="Jean">Jean</option>
+                                <option value="pants">pants</option>
+                                <option value="top">top</option>
+                                <option value="tshirt">tshirt</option>
+                                <option value="twopiece">two piece</option>
+                                <option value="dress">dress</option>
+                                <option value="Jumpsuit">Jumpsuit</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Cost" class="control-label"></label>
+                            <input asp-for="Cost" class="form-control" />
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="SalePrice" class="control-label"></label>
+                            <input asp-for="SalePrice" class="form-control" />
+                            <span asp-validation-for="SalePrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="status" class="control-label"></label>
+                            <select asp-for="status" class="form-control">
+                                
+                                <option value="inShop">in Shop</option>
+                                <option value="sold">Sold</option>     
+                                                          
+                            </select>
+                            <span asp-validation-for="status" class="text-danger"></span>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class = "row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="DateOfSale" class="control-label"></label>
+                            <input asp-for="DateOfSale" class="form-control" />
+                            <span asp-validation-for="DateOfSale" class="text-danger"></span>
+                        </div>
+                    </div>
+              
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="itemImage" class="control-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="itemImage" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <span asp-validation-for="itemImage" class="text-danger"></span>
+                        </div>
+
+                         <div class = "col-md-4">
+                            <img src="~/images/@Html.DisplayFor(model => model.itemImage)" />
+                    </div> 
+                    </div>
+
+
+
+                </div>
+                
+           <div class="row">
+                    <div class ="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
+                        </div>
+                    </div>
+                    <div class = "col-md-6">
+                        <a asp-action="GetCurrentStalk" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>
+                    </div> 
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
+
+
+
+

@@ -1,0 +1,79 @@
+@model Boutiq_api.Models.Boutiq
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+<style>
+    h1 {
+    color: purple;
+    font-weight: 300;
+    text-align: center;
+    font-family: ui-serif;
+    }
+
+    .card {
+    margin-top: 20%;
+    margin: auto;
+    width: 70%;
+    border: 3px solid green;
+    padding: 10px;
+    }
+
+    .col-sm-4 {
+    color: blue;
+    font-size: large;
+    }
+
+    .col-sm-5 {
+    color: blue;
+    font-size: large;
+    }
+</style>
+<h1>ITEM DETAIL</h1>
+<div class="container">
+    <div class="card mb-3" style="max-width: 70%;">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img class="card-img-top" src="~/images/@Html.DisplayFor(model => model.itemImage)" style="width:80%" />
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-5">
+                            @Html.DisplayNameFor(model => model.Type)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Type)
+                        </dd>
+                        <dt class="col-sm-5">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        <dt class="col-sm-5">
+                            @Html.DisplayNameFor(model => model.Cost)
+                        </dt>
+
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Cost)
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.status)
+                        </dt>
+                        <dd class="col-sm-7">
+                            @Html.DisplayFor(model => model.status)
+                        </dd>
+                    </dl>
+                    <a class="btn btn-primary stretched-link" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                    <a class="btn btn-primary stretched-link" asp-action="Index">Back to List</a>
+                    @* <p class="card-text">Some example text some example text. John Doe is an architect and
+                        engineer</p> *@
+                    @* <a href="#" class="btn btn-primary stretched-link">See Profile</a> *@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
