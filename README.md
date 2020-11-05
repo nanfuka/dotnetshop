@@ -1,6 +1,27 @@
-# Upload And Display Image In ASP.NET Core 3.1
+# DEBS shop
+This application is meant to simplify my boutiq by accessing all the details of the botiq items instantly
 
-In this article, I will explain how to upload and display images. This article will help you to understand image tag helper and IFormFile in asp.net core. Image Tag Helper enhances the img tag to provide cache busting behavior for static image files. A unique cache-busting string is appended as a query parameter to the image source. The file on the host web server changes, a unique request URL is generated that includes the updated request parameter. IFormFile which is a C# representation of the file is used to process or save the file.
+# Description
+A user of this application can Create, Read  Edit and Delete any product they have submitted. Supposing new stalk has been brought into the shop, the owner of teh boutiq, or the one in charge of shopping can add new products to the Botiq by entering all teh details.
+# Getting Started
+# Dependencies
+- Install dotnet on you machine
+- install sql server on your machine
+- Install Visual Studio code if using linux  and Visual Studio for windows
+- Install git on your machine if not you will have to download instead of cloning in the next step
+- git clone https://github.com/nanfuka/dotnetshop.git.
+- Open the project using visual studio 
+- Install all the libraries using dotnet restore
+- Modify the appsettings.json file by editing the connection string.
+- Run the application using ```dotnet run```
+- OPen your brouser and go to ```http://localhost:5000/```
+- In order to Add to the stalk, click ```features``` it will take you down  and from there add new stalk.
+# Version History
+0.1
+This is the very first version of this application
 
-For more details please visit the link
-https://www.c-sharpcorner.com/article/upload-and-display-image-in-asp-net-core-3-1/
+
+# Acknowledgments
+The girls I have employed at my boutiq who have mismanaged my business have driven me towards helping myself and all those business owners who are cheated by these girls to have some controls and make some profit
+
+
