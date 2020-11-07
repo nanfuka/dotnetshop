@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿
+using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -52,11 +53,149 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
             return View(products);
         }
 
+                [Authorize]
+        public async Task<IActionResult> GetAllTshirtsSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "tshirt" && p.status == "sold");
+            return View(products);
+        }
+
+
+                        [Authorize]
+        public async Task<IActionResult> GetAllDeposited()
+        {
+            var products = dbContext.Boutiq.Where(p => p.status == "deposited");
+            return View(products);
+        }
+
+
+                [Authorize]
+        public async Task<IActionResult> GetAllPantsSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "pants" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllPantsInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "pants" && p.status == "inShop");
+            return View(products);
+        }
+
+
+                        [Authorize]
+        public async Task<IActionResult> GetAllJeansSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "Jean" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllJeansInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "Jean" && p.status == "inShop");
+            return View(products);
+        }
+
+
+                        [Authorize]
+        public async Task<IActionResult> GetAllLeggingsSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "leggings" && p.status == "sold");
+            return View(products);
+        }
+
+        
+
+                [Authorize]
+        public async Task<IActionResult> GetAllLeggingsInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "leggings" && p.status == "inShop");
+            return View(products);
+        }
+
+                        [Authorize]
+        public async Task<IActionResult> GetAllTopsSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "top" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllTopsInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "top" && p.status == "inShop");
+            return View(products);
+        }
+
+                                [Authorize]
+        public async Task<IActionResult> GetAllJUmpSuitsSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "jumpsuit" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllJumpSuitsInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "jumpsuit" && p.status == "inShop");
+            return View(products);
+        }
+
+
+                                        [Authorize]
+        public async Task<IActionResult> GetAllTwoPieceSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "twopiece" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllTwoPieceInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "twopiece" && p.status == "inShop");
+            return View(products);
+        }
+
+                                [Authorize]
+        public async Task<IActionResult> GetAllDressesSold()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "dress" && p.status == "sold");
+            return View(products);
+        }
+
+                [Authorize]
+        public async Task<IActionResult> GetAllDressesInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "dress" && p.status == "inShop");
+            return View(products);
+        }
+
+        
+
+
+        
+
+        [Authorize]
+        public async Task<IActionResult> GetAllTshirtsInShop()
+        {
+            var products = dbContext.Boutiq.Where(p => p.Type == "tshirt" && p.status == "inShop");
+            return View(products);
+        }
+
         public async Task<IActionResult> Indexs()
         {
             var employee = await dbContext.Boutiq.ToListAsync();
             return View(employee);
         }
+
+                public async Task<IActionResult> FinancialReports()
+        {
+            return View();
+        }
+
+        
 
                 public async Task<IActionResult> Sorted()
         {
@@ -94,6 +233,13 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
                 };
                 dbContext.Add(botiq);
                 await dbContext.SaveChangesAsync();
+                                if(botiq.status =="deposited"){
+                    return RedirectToAction(nameof(GetAllDeposited));
+                }
+
+                else if(botiq.status =="sold"){
+                return RedirectToAction(nameof(GetSoldStalk));
+                }
                 return RedirectToAction(nameof(GetCurrentStalk));
             }
             return View();
@@ -213,6 +359,14 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
 
             return RedirectToAction(nameof(GetCurrentStalk));
 
+        }
+
+                                [Authorize]
+        public async Task<IActionResult> GetWeeklyProfits()
+        {
+            var products = dbContext.Boutiq.Where(p => p.status == "sold");
+            
+            return View(products);
         }
     }
 }

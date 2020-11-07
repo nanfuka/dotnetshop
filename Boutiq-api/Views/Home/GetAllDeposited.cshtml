@@ -1,0 +1,42 @@
+@model IEnumerable<Boutiq_api.Models.Boutiq>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+.card{
+    background-color: rgb(235, 179, 188);
+    }
+.bulooka{
+    display: flex;
+}
+
+.rowtwo{
+    margin-top: 5%;
+}
+img{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+h1{
+    text-align: center;
+    color: blue;
+}
+</style>
+<h1> Cloths that have been deposited on </h1>
+<div class = "row">
+      @foreach (var employee in Model)
+        {
+            
+            
+            <div class = "card col-md-4">
+
+            <img src="~/images/@employee.itemImage"  height="70%" width="90%">
+            <p class = "rowtwo"> <a asp-action="Edit" asp-route-id="@employee.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@employee.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@employee.Id">Delete</a>
+       </p>
+       </div>
+       @* </div> *@
+        }
+        </div>

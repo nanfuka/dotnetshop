@@ -79,6 +79,8 @@
                                 
                                 <option value="inShop">in Shop</option>
                                 <option value="sold">Sold</option>     
+                                <option value="deposited">Deposited</option>     
+
                                                           
                             </select>
                             <span asp-validation-for="status" class="text-danger"></span>
@@ -87,13 +89,13 @@
                     </div>
 
                 <div class = "row">
-                    <div class="col-md-4">
+                    @* <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="DateOfSale" class="control-label"></label>
                             <input asp-for="DateOfSale" class="form-control" />
                             <span asp-validation-for="DateOfSale" class="text-danger"></span>
                         </div>
-                    </div>
+                    </div> *@
               
 
                     <div class="col-md-4">
