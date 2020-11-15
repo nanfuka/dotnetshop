@@ -6,7 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using MvcCoreUploadAndDisplayImage_Demo.Data;
 using Boutiq_api.Models;
 using Boutiq_api.ViewModels;
-
+using System.Collections;
+using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Linq;
@@ -38,10 +39,17 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
             var employee = await dbContext.Boutiq.ToListAsync();
             return View(employee);
         }
+
+        public async Task<IActionResult> BoutiqWorth()
+        {
+            var employee = await dbContext.Boutiq.ToListAsync();
+            return View(employee);
+        }
         [Authorize]
         public async Task<IActionResult> GetCurrentStalk()
         {
             var products = dbContext.Boutiq.Where(p => p.status == "inShop");
+            ViewBag.drw = products.Count();
 
             return View(products);
         }
@@ -192,7 +200,12 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
 
                 public async Task<IActionResult> FinancialReports()
         {
-            return View();
+            DateTime date = DateTime.Now.AddDays(-7);
+            Console.Write(date);
+            var products = dbContext.Boutiq.Where(p =>p.status == "sold" && p.DateOfSale >= date );
+            ViewBag.weeklysales = products.Count();
+            //DateTime mondayOfLastWeek = date.AddDays(-(int)date.DayOfWeek - 6);
+            return View(products);
         }
 
         
@@ -207,19 +220,28 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         {
             return View();
         }
+        List<int> totalValue = new List<int>();
+        int BoutiqWorths = 0;
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> New(BoutiqViewModel model)
         {
             DateTime localDat = DateTime.Now;
+           
+            totalValue.Add(model.SalePrice);
+
+            BoutiqWorths = totalValue.Sum();
+            ViewBag.Title = "Put your page title here";
+
             var localDate = localDat.ToString("dd-MMM-yyyy hh:mm:ss");
 
             if (ModelState.IsValid)
             {
                 string uniqueFileName = UploadedFile(model);
-
-               Boutiq botiq = new Boutiq
+                string iDate = model.DateOfSale;
+                DateTime oDate = Convert.ToDateTime(iDate);
+                Boutiq botiq = new Boutiq
                 {
                     Type = model.Type,
                     Description = model.Description,
@@ -228,9 +250,10 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
                     status = model.status,
                     DateOfEntry = localDate,
                     SalePrice = model.SalePrice,
-                    DateOfSale = model.DateOfSale
+                   DateOfSale = oDate,
+                    BoutiqWorth = BoutiqWorths
 
-                };
+               };
                 dbContext.Add(botiq);
                 await dbContext.SaveChangesAsync();
                                 if(botiq.status =="deposited"){
@@ -365,9 +388,21 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetWeeklyProfits()
         {
             var products = dbContext.Boutiq.Where(p => p.status == "sold");
-            
+            ViewBag.weeklySales = products.Count();
+
             return View(products);
         }
+
+        public async Task<IActionResult> MonthlyReports()
+        {
+            DateTime date = DateTime.Now.AddDays(-30);
+            Console.Write(date);
+            var products = dbContext.Boutiq.Where(p => p.status == "sold" && p.DateOfSale >= date);
+            ViewBag.monthlysales = products.Count();
+            //DateTime mondayOfLastWeek = date.AddDays(-(int)date.DayOfWeek - 6);
+            return View(products);
+        }
+
     }
 }
 

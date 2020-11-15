@@ -7,14 +7,40 @@
     table {
     background-color: rgb(229, 229, 243)
     }
+    .ml2 {
+        font-weight: 900;
+        font-size: 3.5em;
+    }
+
+        .ml2 .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
 </style>
 
 <h4 class="text-center text-uppercase">MY CURRENT STALK</h4>
 
 <p>
-    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add
-        New</a>
+
+    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase">
+        <i class="fas fa-plus-circle"></i> Add
+        New
+    </a>
     <a asp-action="Sorted" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>View Sorted</a>
+
+    <a asp-action="New" class="btn btn-sm btn-warning rounded-0 text-uppercase">
+        <i class="fas fa-plus-circle"></i> Total Number of Items in shop: @ViewBag.drw
+    </a>
+
+    <a asp-action="New" class="btn btn-sm btn-danger rounded-0 text-uppercase">
+        <i class="fas fa-plus-circle"></i> Current Shops worth: Ushs.@Model.Sum(i => i.SalePrice)
+    </a>
+
+
+
+
+
+
 
 </p>
 <table class="table table-bordered">
@@ -40,7 +66,7 @@
             <tr>
                 <td>
                     <img src="~/images/@employee.itemImage" class="rounded-circle" height="40" width="40"
-    asp-append-version="true" />
+                         asp-append-version="true" />
 
                 </td>
                 <td>@employee.Type</td>
@@ -57,5 +83,7 @@
 
             </tr>
         }
+
+       <p> the shops worth is  @Model.Sum(i => i.SalePrice)</p>
     </tbody>
 </table>

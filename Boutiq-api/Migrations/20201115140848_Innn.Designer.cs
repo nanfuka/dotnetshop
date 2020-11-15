@@ -10,8 +10,8 @@ using MvcCoreUploadAndDisplayImage_Demo.Data;
 namespace MvcCoreUploadAndDisplayImage_Demo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201104092836_InitialScripdd")]
-    partial class InitialScripdd
+    [Migration("20201115140848_Innn")]
+    partial class Innn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BoutiqWorth")
+                        .HasColumnType("int");
+
                     b.Property<int>("Cost")
                         .HasColumnType("int");
 
@@ -35,8 +38,8 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DateOfSale")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfSale")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()

@@ -35,8 +35,18 @@ namespace Boutiq_api.Models
         [Required(ErrorMessage = "Please Enter teh sale price of this item")]
 
         public int SalePrice { get; set; }
-        public string DateOfSale { get; set; }
+        public DateTime DateOfSale { get; set; }
 
+        public int BoutiqWorth { get; set; }
+
+        public int Profit {
+
+            get
+            {
+                return SalePrice - Cost;
+            }
+
+        }
 
 
 

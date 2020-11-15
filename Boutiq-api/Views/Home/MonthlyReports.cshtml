@@ -17,18 +17,11 @@
         }
 </style>
 
-<h4 class="text-center text-uppercase">MY WEEKLY REPORT</h4>
+<h4 class="text-center text-uppercase">MY MONTHLY REPORT</h4>
 
 <p>
-    <a asp-action="FinancialReports" class="btn btn-sm btn-info rounded-0 text-uppercase">
-        <i class="fas fa-plus-circle"></i> Weekly Reports
-    </a>
-
-    <a asp-action="MonthlyReports" class="btn btn-sm btn-danger rounded-0 text-uppercase">
-        <i class="fas fa-plus-circle"></i> Monthly Reports
-    </a>
     <a asp-action="New" class="btn btn-sm btn-warning rounded-0 text-uppercase">
-        <i class="fas fa-plus-circle"></i> NO. Items sold: @ViewBag.weeklySales
+        <i class="fas fa-plus-circle"></i> NO. Items sold: @ViewBag.monthlySales
     </a>
 
     <a asp-action="New" class="btn btn-sm btn-danger rounded-0 text-uppercase">
@@ -39,7 +32,13 @@
         <i class="fas fa-plus-circle"></i> Total profits: Ushs.@Model.Sum(i => i.Profit)
     </a>
 
+    <a asp-action="New" class="btn btn-sm btn-info rounded-0 text-uppercase">
+        <i class="fas fa-plus-circle"></i> Weekly Reports
+    </a>
 
+    <a asp-action="New" class="btn btn-sm btn-danger rounded-0 text-uppercase">
+        <i class="fas fa-plus-circle"></i> Monthly Reports
+    </a>
 
 </p>
 

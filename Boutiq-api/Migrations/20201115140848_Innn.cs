@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcCoreUploadAndDisplayImage_Demo.Migrations
 {
-    public partial class InitialScripdd : Migration
+    public partial class Innn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,7 +59,8 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Migrations
                     status = table.Column<string>(nullable: false),
                     itemImage = table.Column<string>(nullable: false),
                     SalePrice = table.Column<int>(nullable: false),
-                    DateOfSale = table.Column<string>(nullable: true)
+                    DateOfSale = table.Column<DateTime>(nullable: false),
+                    BoutiqWorth = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
