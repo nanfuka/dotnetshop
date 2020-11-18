@@ -1,102 +1,102 @@
 <style>
-.card{
-    margin-left: 15px;
-    text-align: center;
+    .card {
+        margin-left: 15px;
+        text-align: center;
         background-color: grey;
+    }
 
+    .row {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
 
-}
-.row{
-    margin-top: 15px;
-    margin-left: 15px;
-}
-.card-header{
-    background-color: black;
-    color: white;
+    .card-header {
+        background-color: black;
+        color: white;
+    }
 
-    
-}
-.card-header{
-    margin-top: 10%;
-}
-h1{
-    text-align: center;
-}
+    .card-header {
+        margin-top: 10%;
+    }
+
+    h1 {
+        text-align: center;
+    }
 </style>
 
 <h1> Sorted Boutique Items </h1>
 <hr>
 
-<div class = "container">
-<div class = "row">
-    <div class = "card col-md-3" >
-        <div  class = "card-header">TSHIRTS</div>
-        <img src = "../images/images/four.jpg" height="50%" width="100%"/>
-        <div  class = "card-footer">    <a asp-action="GetAllTshirtsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>t-shirts in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllTshirtsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Tshirts</a></div>
-    </div> 
+<div class="container">
+    <div class="row">
+        <div class="card col-md-3">
+            <div class="card-header">TSHIRTS</div>
+            <img src="../images/tshirt.jfif" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllTshirtsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>t-shirts in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllTshirtsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Tshirts</a></div>
+        </div>
 
 
 
-        <div class = "card col-md-3">
-        <div  class = "card-header">PANTS</div>
-        <img src = "../images/images/three.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllPantsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Pants in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllPantsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Pants</a></div>
-    </div> 
+        <div class="card col-md-3">
+            <div class="card-header">PANTS</div>
+            <img src="../images/twopiece.jpg" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllPantsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Pants in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllPantsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Pants</a></div>
+        </div>
 
-        <div class = "card col-md-3">
-        <div  class = "card-header">LEGGINGS</div>
-        <img src = "../images/images/two.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllLeggingsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Leggings in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllLeggingsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Leggings</a></div>
-    </div> 
-</div>
-<div class = "row">
-        <div class = "card col-md-3">
-        <div  class = "card-header">TOPS</div>
-        <img src = "../images/images/five.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllTopsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Tops in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllTopsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Tops</a></div>
-    </div> 
-
-        <div class = "card col-md-3">
-        <div  class = "card-header">TWO PIECE</div>
-        <img src = "../images/images/four.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllTwoPieceInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Two Piece Items in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllTwoPieceSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Two Piece Items</a></div>
-    </div> 
-
-        <div class = "card col-md-3">
-        <div  class = "card-header">JEANS</div>
-        <img src = "../images/images/three.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllJeansInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Jeans in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllJeansSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Jeans</a></div>
-    </div> 
+        <div class="card col-md-3">
+            <div class="card-header">LEGGINGS</div>
+            <img src="../images/leggings.jfif" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllLeggingsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Leggings in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllLeggingsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Leggings</a></div>
+        </div>
     </div>
-    <div class  = "row">
+    <div class="row">
+        <div class="card col-md-3">
+            <div class="card-header">TOPS</div>
+            <img src="../images/top.jpg" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllTopsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Tops in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllTopsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Tops</a></div>
+        </div>
 
-        <div class = "card col-md-3">
-        <div  class = "card-header">JUMPSUITS</div>
-        <img src = "../images/images/two.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllJumpSuitsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Jumpsuits in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllJumpSuitsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Jumpsuits</a></div>
-    </div> 
+        <div class="card col-md-3">
+            <div class="card-header">TWO PIECE</div>
+            <img src="../images/images/four.jpg" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllTwoPieceInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Two Piece Items in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllTwoPieceSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Two Piece Items</a></div>
+        </div>
 
-        <div class = "card col-md-3">
-        <div  class = "card-header">DRESSES</div>
-        <img src = "../images/images/three.jpg" height="50%" width="100%"/>
-        
-<div  class = "card-footer">    <a asp-action="GetAllDressesInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>All dresses in store</a></div>
-        <div  class = "card-footer">    <a asp-action="GetAllDressesSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>All Sold dresses</a></div>
-    </div> 
+        <div class="card col-md-3">
+            <div class="card-header">JEANS</div>
+            <img src="../images/jeans.jfif" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllJeansInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Jeans in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllJeansSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Jeans</a></div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="card col-md-3">
+            <div class="card-header">JUMPSUITS</div>
+            <img src="../images/jumpsuit.jfif" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllJumpSuitsInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Jumpsuits in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllJumpSuitsSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>Sold Jumpsuits</a></div>
+        </div>
+
+        <div class="card col-md-3">
+            <div class="card-header">DRESSES</div>
+            <img src="../images/dress.jfif" height="50%" width="100%" />
+
+            <div class="card-footer">    <a asp-action="GetAllDressesInShop" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>All dresses in store</a></div>
+            <div class="card-footer">    <a asp-action="GetAllDressesSold" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>All Sold dresses</a></div>
+        </div>
 
 
-    <div class = "card col-md-3">
-        <div  class = "card-header">DEPOSITED ON CLOTHES</div>
-        <img src = "../images/images/three.jpg" height="50%" width="100%"/>
-<div  class = "card-footer">    <a asp-action="GetAllDeposited" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>View All clothes deposited on</a></div>
-    </div> 
+        <div class="card col-md-3">
+            <div class="card-header">DEPOSITED ON CLOTHES</div>
+            <img src="../images/halfpay.jfif" height="50%" width="100%" />
+            <div class="card-footer">    <a asp-action="GetAllDeposited" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i>View All clothes deposited on</a></div>
+        </div>
 
 
-</div>
+    </div>
