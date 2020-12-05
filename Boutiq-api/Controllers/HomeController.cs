@@ -57,7 +57,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetSoldStalk()
         {
             var products = dbContext.Boutiq.Where(p => p.status == "sold");
-
+            ViewBag.sold = products.Count();
             return View(products);
         }
 
@@ -65,6 +65,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllTshirtsSold()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "tshirt" && p.status == "sold");
+            ViewBag.tshirtsSold = products.Count();
             return View(products);
         }
 
@@ -73,6 +74,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllDeposited()
         {
             var products = dbContext.Boutiq.Where(p => p.status == "deposited");
+            ViewBag.depositedOn = products.Count();
             return View(products);
         }
 
@@ -81,6 +83,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllPantsSold()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "pants" && p.status == "sold");
+            ViewBag.pantsSold = products.Count();
             return View(products);
         }
 
@@ -88,6 +91,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllPantsInShop()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "pants" && p.status == "inShop");
+            ViewBag.pantsInShop = products.Count();
             return View(products);
         }
 
@@ -96,6 +100,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllJeansSold()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "Jean" && p.status == "sold");
+            ViewBag.jeansSold = products.Count();
             return View(products);
         }
 
@@ -103,6 +108,8 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllJeansInShop()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "Jean" && p.status == "inShop");
+            ViewBag.jeansInShop = products.Count();
+
             return View(products);
         }
 
@@ -110,7 +117,9 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
                         [Authorize]
         public async Task<IActionResult> GetAllLeggingsSold()
         {
-            var products = dbContext.Boutiq.Where(p => p.Type == "leggings" && p.status == "sold");
+            var products = dbContext.Boutiq.Where(p => p.Type == "Legging" && p.status == "sold");
+            ViewBag.leggingsSold = products.Count();
+
             return View(products);
         }
 
@@ -119,7 +128,8 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
                 [Authorize]
         public async Task<IActionResult> GetAllLeggingsInShop()
         {
-            var products = dbContext.Boutiq.Where(p => p.Type == "leggings" && p.status == "inShop");
+            var products = dbContext.Boutiq.Where(p => p.Type == "Legging" && p.status == "inShop");
+            ViewBag.leggingsinShop = products.Count();
             return View(products);
         }
 
@@ -127,6 +137,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllTopsSold()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "top" && p.status == "sold");
+            ViewBag.tops = products.Count();
             return View(products);
         }
 
@@ -134,6 +145,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllTopsInShop()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "top" && p.status == "inShop");
+            ViewBag.topsInShop = products.Count();
             return View(products);
         }
 
@@ -148,6 +160,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllJumpSuitsInShop()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "jumpsuit" && p.status == "inShop");
+            ViewBag.jumpsuitsInShop = products.Count();
             return View(products);
         }
 
@@ -156,6 +169,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllTwoPieceSold()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "twopiece" && p.status == "sold");
+            ViewBag.twoPieceInShop = products.Count(); 
             return View(products);
         }
 
@@ -189,6 +203,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> GetAllTshirtsInShop()
         {
             var products = dbContext.Boutiq.Where(p => p.Type == "tshirt" && p.status == "inShop");
+            ViewBag.tshirtsInShop = products.Count();
             return View(products);
         }
 
@@ -359,6 +374,7 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
         public async Task<IActionResult> EditConfirmed(Boutiq stalk)
 
         {
+            string returnPage = null;
             DateTime localDate = DateTime.Now;
             Boutiq botiq = new Boutiq
             {
@@ -375,13 +391,72 @@ namespace MvcCoreUploadAndDisplayImage_Demo.Controllers
             };
 
 
+
+            if (botiq.Type == "pants" && botiq.status == "sold")
+            {
+                returnPage = "GetAllPantsSold";
+            }
+            if (botiq.Type == "pants" && botiq.status == "inShop")
+            {
+                returnPage = "GetAllPantsInShop";
+            }
+
+            if (botiq.Type == "Legging" && botiq.status == "sold")
+            {
+                returnPage = "GetAllLeggingsSold";
+            }
+            if (botiq.Type == "Legging" && botiq.status == "inShop")
+            {
+                returnPage = "GetAllLeggingsInShop";
+            }
+
+
+            if (botiq.Type == "top" && botiq.status == "sold")
+            {
+                returnPage = "GetAllTopsSold";
+            }
+            if (botiq.Type == "top" && botiq.status == "inShop")
+            {
+                returnPage = "getalltopsinshop";
+            }
+
+
+            if (botiq.Type == "tshirt" && botiq.status == "inShop")
+            {
+
+                returnPage = nameof(GetAllTshirtsInShop);
+
+               }
+            if (botiq.Type == "tshirt" && botiq.status == "sold")
+            {
+                returnPage = "GetAllTshirtsSold";
+            }
+
+
+            if (botiq.Type == "twopiece" && botiq.status == "sold")
+            {
+                returnPage = "GetAllTwoPieceSold";
+            }
+            if (botiq.Type == "twopiece" && botiq.status == "inShop")
+            {
+                returnPage = "GetAllTwoPieceInShop";
+            }
+
+            if (botiq.Type == "Jumpsuit" && botiq.status == "sold")
+            {
+                returnPage = "GetAllJumpSuitsSold";
+            }
+            if (botiq.Type == "Jumpsuit" && botiq.status == "inShop")
+            {
+                returnPage = "GetAllJumpSuitsInShop";
+            }
+
+
             dbContext.Update(botiq);
 
             await dbContext.SaveChangesAsync();
 
-
-            return RedirectToAction(nameof(GetCurrentStalk));
-
+            return RedirectToAction(returnPage);
         }
 
                                 [Authorize]
